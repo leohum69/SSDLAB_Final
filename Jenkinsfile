@@ -29,7 +29,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Packaging app (simulated)...'
-                bat 'if not exist build mkdir build && xcopy /E /I /Y * build\\'
+                bat 'if not exist build mkdir build && xcopy /E /I /Y * build\\ /XD build'
             }
         }
         stage('Deploy') {

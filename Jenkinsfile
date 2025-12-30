@@ -19,7 +19,7 @@ pipeline {
                 echo 'Starting Flask app...'
                 bat 'start /B python file.py'
                 echo 'Waiting for app to start...'
-                bat 'timeout /T 5'
+                bat 'ping -n 6 127.0.0.1 >nul'
                 echo 'Running tests...'
                 echo 'Checking if website is live (simulated)...'
                 bat 'curl -I http://localhost:5000 || echo Site not live (simulated check)'

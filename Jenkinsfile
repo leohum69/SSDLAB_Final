@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Simulating deployment to desktop...'
-                bat 'if not exist "%TARGET_DIR%" mkdir "%TARGET_DIR%" && xcopy /E /I /Y build\* "%TARGET_DIR%"'
+                bat 'if not exist "%TARGET_DIR%" mkdir "%TARGET_DIR%" && xcopy /E /I /Y build\\* "%TARGET_DIR%"'
             }
         }
     }

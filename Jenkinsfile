@@ -6,12 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone') {
-            steps {
-                echo 'Cloning repository...'
-                // Jenkins checks out the repo by default
-            }
-        }
+        
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
@@ -29,7 +24,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Packaging app (simulated)...'
-                bat 'if not exist build mkdir build && xcopy /E /I /Y * build\'
+                bat 'if not exist build mkdir build && xcopy /E /I /Y * build\\'
             }
         }
         stage('Deploy') {

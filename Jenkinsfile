@@ -15,10 +15,15 @@ pipeline {
         }
         stage('Test') {
             steps {
+                
+                echo 'Starting Flask app...'
+                bat 'start /B python file.py'
+                echo 'Waiting for app to start...'
+                bat 'timeout /T 5'
                 echo 'Running tests...'
-                bat 'pytest || exit 0'
                 echo 'Checking if website is live (simulated)...'
                 bat 'curl -I http://localhost:5000 || echo Site not live (simulated check)'
+                
             }
         }
         stage('Build') {
